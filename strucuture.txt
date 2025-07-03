@@ -1,0 +1,18 @@
+my-app/
+├── node_modules/
+├── public/
+│   ├── favicon.ico
+│   └── vercel.svg
+├── styles/
+│   └── globals.css
+├── components/
+│   └── (optional React components go here)
+├── pages/
+│   ├── _app.js       # Next.js App component
+│   └── index.js      # Homepage
+├── .gitignore
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+├── next.config.js    # (auto-generated)
+└── README.md
