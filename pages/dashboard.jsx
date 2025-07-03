@@ -10,7 +10,7 @@ const dashboard = () => {
       <Sidebar />
       <div className="px-10 w-full">
         <DashboardContent />
-        <div className="flex">
+        <div className="flex justify-between">
           <Chart />
           <Matching />
         </div>

@@ -1,45 +1,47 @@
-import { IconBriefcase, IconCalendarEventFilled, IconChartBar, IconCheckupList, IconPuzzle, IconSettings, IconUser } from '@tabler/icons-react'
+import {
+  IconBriefcase,
+  IconCalendarEventFilled,
+  IconChartBar,
+  IconCheckupList,
+  IconPuzzle,
+  IconSettings,
+  IconUser
+} from '@tabler/icons-react'
 import React from 'react'
 
 const Sidebar = () => {
+  const menuItems = [
+    { icon: <IconBriefcase />, label: 'Event Management' },
+    { icon: <IconChartBar />, label: 'Real-Time Dashboard' },
+    { icon: <IconPuzzle />, label: 'Matching Tracker' },
+    { icon: <IconCalendarEventFilled />, label: 'Meeting Monitoring' },
+    { icon: <IconUser />, label: 'Participant Management' }
+  ]
+
+  const bottomItems = [
+    { icon: <IconCheckupList />, label: 'Reports' },
+    { icon: <IconSettings />, label: 'AI Matching Settings' }
+  ]
+
+  const Item = ({ icon, label }) => (
+    <div className="flex items-center gap-3 px-5 py-2 rounded-lg text-md text-gray-700 hover:bg-blue-500 hover:text-white transition-colors duration-300 cursor-pointer">
+      {icon}
+      <span>{label}</span>
+    </div>
+  )
+
   return (
-    <div className='flex flex-col gap-10'>
+    <div className="flex flex-col gap-10 w-96 p-4">
       <div className="flex flex-col gap-3">
-        <div className="flex gap-3">
-          <IconBriefcase />
-          <span>Event Management</span>
-        </div>
-        <div className="flex gap-3">
-          <IconChartBar />
-          <span>Real-Time Dashboard</span>
-        </div>
-        <div className="flex gap-3">
-          <IconPuzzle />
-          <span>Matching Tracker</span>
-        </div>
-        <div className="flex gap-3">
-          <IconCalendarEventFilled />
-          <span>Meeting Monitoring</span>
-        </div>
-        <div className="flex gap-3">
-          <IconUser />
-          <span>Participant Management</span>
-        </div>
+        {menuItems.map((item, i) => (
+          <Item key={i} icon={item.icon} label={item.label} />
+        ))}
       </div>
-      <div>
-        <div className="flex flex-col gap-3">
-
-          <div className="flex gap-3">
-            <IconCheckupList />
-            <span>Reports</span>
-          </div>
-          <div className="flex gap-3">
-            <IconSettings />
-            <span>AI Matching Settings</span>
-          </div>
-        </div>
+      <div className="flex flex-col gap-3">
+        {bottomItems.map((item, i) => (
+          <Item key={i} icon={item.icon} label={item.label} />
+        ))}
       </div>
-
     </div>
   )
 }

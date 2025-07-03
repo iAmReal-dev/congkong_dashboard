@@ -6,7 +6,7 @@ import Dashboard from "./dashboard.jsx";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50 max-w-[80vw] mx-auto">
+    <div className="bg-gray-50 max-w-[80vw] py-5 mx-auto">
       <Navbar />
       <Dashboard />
     </div>

@@ -1,68 +1,64 @@
-import { IconClock, IconPin, IconSquareDashed, IconStar, IconTopologyStar } from '@tabler/icons-react'
+import {
+  IconClock,
+  IconPin,
+  IconSquareDashed,
+  IconStar,
+  IconTopologyStar
+} from '@tabler/icons-react'
 import React from 'react'
 
-const DashboardContent = () => {
-    return (
-        <div>
-            <div className="flex justify-between">
-                <div className='flex flex-col'>
-                    <div className="flex gap-3 ">
-                        <IconTopologyStar />
-                        <span>
-                            Total Participants
-                        </span>
-                    </div>
-                    <span className='font-bold text-2xl'>150</span>
-                </div>
-                <div className='flex flex-col'>
-                    <div className="flex gap-3 ">
-                        <IconClock />
-                    <span>
-                        Real-Time Dentified
-                    </span>
-                    </div>
-                        <span className='font-bold text-2xl'>{`29(19%)`}</span>
-                </div>
-                <div className='flex flex-col'>
-                    <div className="flex gap-3 ">
-                        <IconPin />
-                    <span>
-                        Average Matches
-                    </span>
-                    </div>
-                        <span className='font-bold text-2xl'>160</span>
-                </div>
-                <div className='flex flex-col'>
-                    <div className="flex gap-3 ">
-                        <IconSquareDashed />
-                    <span>
-                        Average Satisfaction
-                    </span>
-                    </div>
-                        <span className='font-bold text-2xl'>78%</span>
-                </div>
-                <div className='flex flex-col'>
-                    <div className="flex gap-3 ">
-                        <IconStar />
-                    <span>
-                        Total Meetings
-                    </span>
-                    </div>
-                        <span className='font-bold text-2xl'>18</span>
-                </div>
-                <div className='flex flex-col'>
-                    <div className="flex gap-3 ">
-                        <IconStar />
-                    <span>
-                        Peak
-                    </span>
-                    </div>
-                        <span className='font-bold text-2xl'>4.3</span>
-                </div>
+const metrics = [
+  {
+    icon: <IconTopologyStar size={24} className='text-blue-500' />,
+    label: 'Total Participants',
+    value: '150'
+  },
+  {
+    icon: <IconClock className='text-blue-500' size={24} />,
+    label: 'Real-Time Identified',
+    value: '29 (19%)'
+  },
+  {
+    icon: <IconPin className='text-blue-500' size={24} />,
+    label: 'Average Matches',
+    value: '160'
+  },
+  {
+    icon: <IconSquareDashed className='text-blue-500' size={24} />,
+    label: 'Average Satisfaction',
+    value: '78%'
+  },
+  {
+    icon: <IconStar className='text-blue-500' size={24} />,
+    label: 'Total Meetings',
+    value: '18'
+  },
+  {
+    icon: <IconStar className='text-blue-500' size={24} />,
+    label: 'Peak',
+    value: '4.3'
+  }
+]
 
-            </div>
-        </div>
-    )
+const MetricCard = ({
+  icon,
+  label,
+  value
+}) => (
+  <div className="flex flex-col gap-1 py-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ">
+    <div className="flex items-center gap-2 text-lg font-bold text-gray-700">{icon}<span>{label}</span></div>
+    <span className="font-bold text-2xl text-gray-900">{value}</span>
+  </div>
+)
+
+const DashboardContent = () => {
+  return (
+    <div className="flex justify-between gap-4">
+      {metrics.map((item, index) => (
+        <MetricCard key={index} icon={item.icon} label={item.label} value={item.value} />
+      ))}
+    </div>
+  )
 }
 
 export default DashboardContent
