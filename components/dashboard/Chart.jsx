@@ -164,9 +164,9 @@ const LineChart = () => {
   }, [])
 
   return (
-    <div className='flex flex-col gap-10 w-full'>
+    <div className='flex flex-col gap-10 md:w-[70vw]'>
       <div className="bg-white rounded-xl shadow-sm p-5 w-full">
-        <div className="flex justify-between items-center my-6">
+        <div className="flex justify-between items-center flex-wrap gap-2 my-6">
           <h3 className="text-base sm:text-lg font-semibold text-gray-800">Login Activity Over Time</h3>
           <div className="flex items-center space-x-2 text-xs sm:text-sm">
             <div className="flex items-center">

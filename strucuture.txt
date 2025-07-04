@@ -6,13 +6,24 @@ my-app/
 ├── styles/
 │   └── globals.css
 ├── components/
-│   └── (optional React components go here)
+│   ├── Navbar.jsx
+│   └── dashboard/
+│       ├── Chart.jsx
+│       ├── DashboardContent.jsx
+│       ├── Matching.jsx
+│       ├── MetricCard.jsx
+│       └── Sidebar.jsx
 ├── pages/
-│   ├── _app.js       # Next.js App component
-│   └── index.js      # Homepage
+│   ├── _app.jsx
+│   ├── dashboard.jsx
+│   └── index.jsx
+├── supabase/
+│   ├── schema.sql
+│   └── dummy_data.sql
+├── .env.local
 ├── .gitignore
 ├── package.json
 ├── postcss.config.js
 ├── tailwind.config.js
-├── next.config.js    # (auto-generated)
+├── next.config.js
 └── README.md
