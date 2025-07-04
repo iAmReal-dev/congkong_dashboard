@@ -1,11 +1,14 @@
 import { createClient } from '@supabase/supabase-js'
 import Dashboard from './dashboard'
+import Navbar from '../components/Navbar'
 
 const supabaseUrl = 'https://duwmdlxbxafgshgnrajp.supabase.co'
 const supabase = createClient(supabaseUrl, process.env.SUPABASE_KEY)
 
 export default function Home({ totalParticipants, realTimeIdentified, avgMatches, avgSatisfaction, totalMeetings, topMatches, topParticipants }) {
   return (
+    <div className='xl:max-w-[90vw] mx-auto'>
+    <Navbar />
     <Dashboard
       totalParticipants={totalParticipants}
       realTimeIdentified={realTimeIdentified}
@@ -14,7 +17,8 @@ export default function Home({ totalParticipants, realTimeIdentified, avgMatches
       totalMeetings={totalMeetings}
       topMatches={topMatches}
       topParticipants={topParticipants}
-    />
+      />
+      </div>
   )
 }
 

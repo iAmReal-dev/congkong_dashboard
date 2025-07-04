@@ -23,14 +23,14 @@ const renderList = (list = [], type) =>
 
 export default function Matching({ topMatches = [], topParticipants = [] }) {
   return (
-    <div className="p-4 space-y-6">
-      <div className="p-4">
+    <div className="space-y-6">
+      <div>
         <p className="text-base sm:text-lg font-semibold mb-2">Matching Top 5</p>
         <ul className="space-y-2">
           {topMatches.length > 0 ? renderList(topMatches, 'matches') : <p>No matches available</p>}
         </ul>
       </div>
-      <div className="p-4">
+      <div>
         <p className="text-base sm:text-lg font-semibold mb-2">Meeting in Participation</p>
         <ul className="space-y-2">
           {topParticipants.length > 0 ? renderList(topParticipants, 'participants') : <p>No participants available</p>}

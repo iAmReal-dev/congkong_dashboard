@@ -22,10 +22,10 @@ const LineChart = () => {
       chartInstance.current = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          labels: ['09:00', '10:00', '11:00', '12:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00'],
           datasets: [
             {
-              label: 'Desktop Logins',
+              label: 'Participation Login',
               data: [65, 59, 80, 81, 56, 55, 70, 65, 59, 80, 81, 60],
               borderColor: 'rgb(59, 130, 246)',
               backgroundColor: gradient,
@@ -35,7 +35,7 @@ const LineChart = () => {
               pointHoverRadius: 6,
             },
             {
-              label: 'Mobile Logins',
+              label: 'Meeting',
               data: [28, 48, 40, 19, 86, 27, 40, 28, 48, 40, 19, 86],
               borderColor: 'rgb(16, 185, 129)',
               backgroundColor: 'transparent',
@@ -44,7 +44,7 @@ const LineChart = () => {
               pointHoverRadius: 6,
             },
             {
-              label: 'Tablet Logins',
+              label: 'Total Meetings',
               data: [45, 25, 60, 40, 70, 35, 60, 45, 25, 60, 40, 70],
               borderColor: 'rgb(245, 158, 11)',
               backgroundColor: 'transparent',
@@ -82,7 +82,7 @@ const LineChart = () => {
               boxPadding: 4,
               callbacks: {
                 label: function (context) {
-                  return `${context.dataset.label}: ${context.parsed.y} min`
+                  return `${context.dataset.label}: ${context.parsed.y}`
                 }
               }
             }
@@ -102,7 +102,7 @@ const LineChart = () => {
               },
               title: {
                 display: true,
-                text: 'Logins',
+                text: '',
                 color: '#4B5563',
                 font: {
                   size: 14,
@@ -125,7 +125,7 @@ const LineChart = () => {
                   family: "'Inter', sans-serif"
                 },
                 callback: function (value) {
-                  return value + ' min'
+                  return value
                 }
               },
               beginAtZero: true,
@@ -164,30 +164,14 @@ const LineChart = () => {
   }, [])
 
   return (
-    <div className='flex flex-col gap-10 md:w-[70vw]'>
-      <div className="bg-white rounded-xl shadow-sm p-5 w-full">
+    <div className='flex flex-col gap-10 md:w-[60vw]'>
+      <div className="bg-white rounded-xl shadow-sm md:p-5 w-full">
         <div className="flex justify-between items-center flex-wrap gap-2 my-6">
-          <h3 className="text-base sm:text-lg font-semibold text-gray-800">Login Activity Over Time</h3>
-          <div className="flex items-center space-x-2 text-xs sm:text-sm">
-            <div className="flex items-center">
-              <div className="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
-              <span className="text-gray-600">Desktop</span>
-            </div>
-            <div className="flex items-center">
-              <div className="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
-              <span className="text-gray-600">Mobile</span>
-            </div>
-            <div className="flex items-center">
-              <div className="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
-              <span className="text-gray-600">Tablet</span>
-            </div>
-          </div>
+          <h3 className="text-base sm:text-lg font-semibold text-gray-800">Activity by Time</h3>
+
         </div>
-        <div className="h-[200px] sm:h-[300px]">
+        <div className="h-[300px]">
           <canvas ref={chartRef}></canvas>
-        </div>
-        <div className="mt-4 flex justify-center text-xs sm:text-sm text-gray-500">
-          <p>Hover over points to see details. Click legend items to toggle visibility.</p>
         </div>
       </div>
       <div>
