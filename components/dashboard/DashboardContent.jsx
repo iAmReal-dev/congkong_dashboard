@@ -1,3 +1,4 @@
+// components/dashboard/DashboardContent.jsx
 import {
   IconClock,
   IconPin,
@@ -40,20 +41,16 @@ const metrics = [
   }
 ]
 
-const MetricCard = ({
-  icon,
-  label,
-  value
-}) => (
-  <div className="flex flex-col gap-1 py-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ">
-    <div className="flex items-center gap-2 text-lg font-bold text-gray-700">{icon}<span>{label}</span></div>
-    <span className="font-bold text-2xl text-gray-900">{value}</span>
+const MetricCard = ({ icon, label, value }) => (
+  <div className="flex flex-col gap-1 py-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+    <div className="flex items-center gap-2 text-base sm:text-lg font-bold text-gray-700">{icon}<span>{label}</span></div>
+    <span className="font-bold text-xl sm:text-2xl text-gray-900">{value}</span>
   </div>
 )
 
 const DashboardContent = () => {
   return (
-    <div className="flex justify-between gap-4">
+    <div className="flex overflow-x-auto gap-4">
       {metrics.map((item, index) => (
         <MetricCard key={index} icon={item.icon} label={item.label} value={item.value} />
       ))}

@@ -1,16 +1,17 @@
+// pages/dashboard.jsx
 import React from 'react'
-import Sidebar from '../components/dashhboard/Sidebar'
-import DashboardContent from '../components/dashhboard/DashboardContent.jsx'
-import Chart from '../components/dashhboard/Chart'
-import Matching from '../components/dashhboard/Matching'
+import Sidebar from '../components/dashboard/Sidebar'
+import DashboardContent from '../components/dashboard/DashboardContent'
+import Chart from '../components/dashboard/Chart'
+import Matching from '../components/dashboard/Matching'
 
-const dashboard = () => {
+const Dashboard = () => {
   return (
-    <div className='flex mt-10 justify-between'>
-      <Sidebar />
-      <div className="px-10 w-full">
+    <div className='flex flex-col md:flex-row mt-10 gap-4'>
+      <Sidebar className="w-full md:w-96" />
+      <div className="w-full px-4 md:px-10">
         <DashboardContent />
-        <div className="flex justify-between">
+        <div className="flex flex-col md:flex-row justify-between gap-4 mt-10">
           <Chart />
           <Matching />
         </div>
@@ -19,4 +20,4 @@ const dashboard = () => {
   )
 }
 
-export default dashboard
+export default Dashboard

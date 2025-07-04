@@ -1,3 +1,4 @@
+// components/dashboard/Sidebar.jsx
 import {
   IconBriefcase,
   IconCalendarEventFilled,
@@ -9,7 +10,7 @@ import {
 } from '@tabler/icons-react'
 import React from 'react'
 
-const Sidebar = () => {
+const Sidebar = ({ className = '' }) => {
   const menuItems = [
     { icon: <IconBriefcase />, label: 'Event Management' },
     { icon: <IconChartBar />, label: 'Real-Time Dashboard' },
@@ -24,14 +25,14 @@ const Sidebar = () => {
   ]
 
   const Item = ({ icon, label }) => (
-    <div className="flex items-center gap-3 px-5 py-2 rounded-lg text-md text-gray-700 hover:bg-blue-500 hover:text-white transition-colors duration-300 cursor-pointer">
+    <div className="flex items-center gap-3 px-3 sm:px-5 py-2 rounded-lg text-sm sm:text-base text-gray-700 hover:bg-blue-500 hover:text-white transition-colors duration-300 cursor-pointer">
       {icon}
       <span>{label}</span>
     </div>
   )
 
   return (
-    <div className="flex flex-col gap-10 w-96 p-4">
+    <div className={`flex flex-col gap-10 p-4 ${className}`}>
       <div className="flex flex-col gap-3">
         {menuItems.map((item, i) => (
           <Item key={i} icon={item.icon} label={item.label} />

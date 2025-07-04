@@ -1,25 +1,23 @@
-import React, { useRef, useEffect } from 'react';
-import Chart from 'chart.js/auto';
-import Link from 'next/link';
-import { IconArrowBounce, IconArrowRight, IconBinaryTreeFilled } from '@tabler/icons-react';
+// components/dashboard/Chart.jsx
+import React, { useRef, useEffect } from 'react'
+import Chart from 'chart.js/auto'
+import Link from 'next/link'
+import { IconArrowBounce, IconArrowRight, IconBinaryTreeFilled } from '@tabler/icons-react'
 
 const LineChart = () => {
-  const chartRef = useRef(null);
-  const chartInstance = useRef(null);
+  const chartRef = useRef(null)
+  const chartInstance = useRef(null)
 
   useEffect(() => {
     if (chartRef.current) {
-      // Destroy previous chart instance if exists
       if (chartInstance.current) {
-        chartInstance.current.destroy();
+        chartInstance.current.destroy()
       }
 
-      const ctx = chartRef.current.getContext('2d');
-
-      // Create gradient for the chart area
-      const gradient = ctx.createLinearGradient(0, 0, 0, 400);
-      gradient.addColorStop(0, 'rgba(59, 130, 246, 0.1)');
-      gradient.addColorStop(1, 'rgba(59, 130, 246, 0)');
+      const ctx = chartRef.current.getContext('2d')
+      const gradient = ctx.createLinearGradient(0, 0, 0, 400)
+      gradient.addColorStop(0, 'rgba(59, 130, 246, 0.1)')
+      gradient.addColorStop(1, 'rgba(59, 130, 246, 0)')
 
       chartInstance.current = new Chart(ctx, {
         type: 'line',
@@ -84,7 +82,7 @@ const LineChart = () => {
               boxPadding: 4,
               callbacks: {
                 label: function (context) {
-                  return `${context.dataset.label}: ${context.parsed.y} min`;
+                  return `${context.dataset.label}: ${context.parsed.y} min`
                 }
               }
             }
@@ -127,7 +125,7 @@ const LineChart = () => {
                   family: "'Inter', sans-serif"
                 },
                 callback: function (value) {
-                  return value + ' min';
+                  return value + ' min'
                 }
               },
               beginAtZero: true,
@@ -155,22 +153,22 @@ const LineChart = () => {
             }
           }
         }
-      });
+      })
     }
 
     return () => {
       if (chartInstance.current) {
-        chartInstance.current.destroy();
+        chartInstance.current.destroy()
       }
-    };
-  }, []);
+    }
+  }, [])
 
   return (
     <div className='flex flex-col gap-10 w-full'>
       <div className="bg-white rounded-xl shadow-sm p-5 w-full">
         <div className="flex justify-between items-center my-6">
-          <h3 className="text-lg font-semibold text-gray-800">Login Activity Over Time</h3>
-          <div className="flex items-center space-x-2 text-sm">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-800">Login Activity Over Time</h3>
+          <div className="flex items-center space-x-2 text-xs sm:text-sm">
             <div className="flex items-center">
               <div className="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
               <span className="text-gray-600">Desktop</span>
@@ -185,38 +183,37 @@ const LineChart = () => {
             </div>
           </div>
         </div>
-        <div className="h-[300px]">
+        <div className="h-[200px] sm:h-[300px]">
           <canvas ref={chartRef}></canvas>
         </div>
-        <div className="mt-4 flex justify-center text-sm text-gray-500">
+        <div className="mt-4 flex justify-center text-xs sm:text-sm text-gray-500">
           <p>Hover over points to see details. Click legend items to toggle visibility.</p>
         </div>
       </div>
-
       <div>
-        <p className='font-bold text-2xl mb-5'>Real-Time Insights</p>
-
-        <div className="flex justify-between">
+        <p className='font-bold text-xl sm:text-2xl mb-5'>Real-Time Insights</p>
+        <div className="flex flex-col sm:flex-row justify-between gap-4">
           <div className="flex gap-2">
             <IconArrowBounce className='bg-yellow-200 size-10 p-2 rounded-lg text-yellow-400' />
             <div className="flex flex-col gap-1">
-              <p className='font-bold text-md'>Surge Industry Identified</p>
-              <p className='text-sm'>Match success rate between 4 random quality</p>
-              <Link className='flex gap-2 text-sm  text-blue-600 hover:border-b-2 w-40 ' href={"!#"}>View detailed report <IconArrowRight /></Link>
+              <p className='font-bold text-base'>Surge Industry Identified</p>
+              <p className='text-xs sm:text-sm'>Match success rate between 4 random quality</p>
+              <Link className='flex gap-2 text-xs sm:text-sm text-blue-600' href="!#">View detailed report <IconArrowRight /></Link>
             </div>
           </div>
           <div className="flex gap-2">
             <IconBinaryTreeFilled className='bg-yellow-200 size-10 p-2 rounded-lg text-yellow-400' />
             <div className="flex flex-col gap-1">
-              <p className='font-bold text-md'>Numerous Uncompleted Profile</p>
-              <p className='text-sm'>24 participations completing profile, potentially low quality</p>
-              <Link className='flex gap-2 text-blue-600 text-sm hover:border-b-2 w-40' href={"!#"}>Send notification <IconArrowRight /></Link>
+              <p className='font-bold text-base'>Numerous Uncompleted Profile</p>
+              <p className='text-xs sm:text-sm'>24 participations completing profile, potentially low quality</p>
+              <Link className='flex gap-2 text-xs sm:text-sm text-blue-600' href="!#">Send notification <IconArrowRight /></Link>
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LineChart;
+export default LineChart
+
