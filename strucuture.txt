@@ -12,6 +12,11 @@ my-app/
 │       ├── DashboardContent.jsx
 │       ├── Matching.jsx
 │       ├── MetricCard.jsx
+│       ├── AIMatchingSettings.jsx
+│       ├── EventManagement.jsx
+│       ├── MatchingTracker.jsx
+│       ├── RealTimeDashboard.jsx
+│       ├── ParticipantManagement.jsx
 │       └── Sidebar.jsx
 ├── pages/
 │   ├── _app.jsx
