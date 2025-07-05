@@ -1,4 +1,3 @@
-// components/dashboard/Chart.jsx
 import React, { useRef, useEffect } from 'react'
 import Chart from 'chart.js/auto'
 import Link from 'next/link'
@@ -164,7 +163,7 @@ const LineChart = () => {
   }, [])
 
   return (
-    <div className='flex flex-col gap-10 md:w-[60vw]'>
+    <div className='flex flex-col gap-10 md:w-[50vw]'>
       <div className="bg-white rounded-xl shadow-sm md:p-5 w-full">
         <div className="flex justify-between items-center flex-wrap gap-2 my-6">
           <h3 className="text-base sm:text-lg font-semibold text-gray-800">Activity by Time</h3>
